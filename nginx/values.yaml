@@ -1,7 +1,18 @@
-configmap:
-  port: 8080
-  nodeport: 32760
+controller:
+  name: nginx-ingress
+  image:
+    repository: nginx/nginx-ingress
+    tag: "1.12.0"
+  replicaCount: 2
 
-deployment:
-  replicas: 2
-  imageversion: stable-bookworm-perl
+  # Extra arguments for the ingress controller
+  extraArgs:
+    ingress-class: "nginx-trial" # This will restrict the NGINX controller to look for ingresses with the nginx-trial class
+
+  # Optional: Create an ingressClass resource in Kubernetes
+  ingressClassResource:
+    enabled: true
+    name: "nginx-trial"
+    default: false
+
+

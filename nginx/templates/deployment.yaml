@@ -7,7 +7,7 @@ metadata:
     component: helm
   #these labels belong to deployment set resource
 spec:
-  replicas: {{ .Values.deployment.replicas }} #specify no. of pods, as per our requirement
+  replicas: {{ .Values.controller.replicaCount }} #specify no. of pods, as per our requirement
   selector: #select the pods with these labels
     matchLabels:
       component: helm
@@ -21,9 +21,9 @@ spec:
         project: testing
     spec:
       containers:
-      - name: nginx-ingress
-        image: nginx:{{ .Values.deployment.imageversion }}
+      - name: nginx-ingress-controller
+      image: {{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag }}
       args:
-      - /nginx-ingress
-      - --ingress-class=nginx-trial
+        - /nginx-ingress-controller
+        - --ingress-class={{ .Values.controller.extraArgs.ingress-class }}
   
