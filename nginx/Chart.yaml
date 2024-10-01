@@ -1,0 +1,4 @@
+apiVersion: v2
+name: infra-nginx-ingress-trial
+version: 0.1 #helm chart version
+description: this is the custom chart for nginx-ingress
