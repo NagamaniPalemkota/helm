@@ -22,8 +22,8 @@ spec:
     spec:
       containers:
       - name: nginx-ingress-controller
-      image: nginx:latest
-      args:
+        image: nginx:latest
+        args:
         - /nginx-ingress-controller
         - --ingress-class={{ .Values.controller.extraArgs.ingressclass }}
   
