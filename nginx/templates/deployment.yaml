@@ -25,5 +25,5 @@ spec:
       image: {{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag }}
       args:
         - /nginx-ingress-controller
-        - --ingress-class={{ .Values.controller.extraArgs.ingressclass }}
+        # - --ingress-class={{ .Values.controller.extraArgs.ingress-class }}
   

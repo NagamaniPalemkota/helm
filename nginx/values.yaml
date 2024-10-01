@@ -7,7 +7,7 @@ controller:
 
   # Extra arguments for the ingress controller
   extraArgs:
-    ingressclass: "nginx-trial" # This will restrict the NGINX controller to look for ingresses with the nginx-trial class
+    ingress-class: "nginx-trial" # This will restrict the NGINX controller to look for ingresses with the nginx-trial class
 
   # Optional: Create an ingressClass resource in Kubernetes
   ingressClassResource:
