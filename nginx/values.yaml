@@ -15,4 +15,8 @@ controller:
     name: "nginx-trial"
     default: false
 
+configmap:
+  port: 8080
+  nodeport: 32760
+
 
